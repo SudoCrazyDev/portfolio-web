@@ -169,6 +169,30 @@
 				}
 			}
 
+			// Background parallax for any layers tagged with data-parallax
+			slides.forEach(function (s) {
+				var layers = s.querySelectorAll('[data-parallax]');
+				if (!layers || !layers.length) return;
+				layers.forEach(function (layer) {
+					var depth = parseFloat(layer.getAttribute('data-depth') || '0.12') || 0.12;
+					gsap.fromTo(
+						layer,
+						{ yPercent: -8 * depth, opacity: 0.9 },
+						{
+							yPercent: 10 * depth,
+							opacity: 1,
+							ease: 'none',
+							scrollTrigger: {
+								trigger: deck,
+								start: 'top top',
+								end: '+=' + (slides.length * 1000),
+								scrub: true,
+							},
+						}
+					);
+				});
+			});
+
 			var st = ScrollTrigger.create({
 				animation: tl,
 				trigger: deck,

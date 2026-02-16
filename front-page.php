@@ -19,7 +19,7 @@ get_header();
 
 		<section class="plc-slide plc-slide--hero" data-slide>
 			<div class="plc-slide__inner">
-				<div class="plc-slide__layer plc-slide__layer--bg" aria-hidden="true"></div>
+				<div class="plc-slide__layer plc-slide__layer--bg" aria-hidden="true" data-parallax data-depth="0.18"></div>
 				<div class="plc-slide__content">
 					<p class="plc-eyebrow">Fullstack Web Developer</p>
 					<h1 class="plc-hero__title" data-anim="title">I build high-performance web products—from UI to infrastructure.</h1>
@@ -34,7 +34,7 @@ get_header();
 
 		<section class="plc-slide" data-slide>
 			<div class="plc-slide__inner">
-				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true"></div>
+				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true" data-parallax data-depth="0.10"></div>
 				<div class="plc-slide__content">
 					<h2 class="plc-h2 plc-proofTitle" data-proof="title">Proof, not fluff.</h2>
 					<p class="plc-muted plc-proofSub" data-proof="sub">Placeholder highlights (we’ll swap to real numbers once you give them to me).</p>
@@ -71,7 +71,7 @@ get_header();
 
 		<section class="plc-slide" data-slide>
 			<div class="plc-slide__inner">
-				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true"></div>
+				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true" data-parallax data-depth="0.16"></div>
 				<div class="plc-slide__content">
 					<h2 class="plc-h2">Selected Work</h2>
 					<p class="plc-muted">Placeholders for now. We’ll replace with real case studies.</p>
@@ -86,7 +86,7 @@ get_header();
 
 		<section class="plc-slide" data-slide>
 			<div class="plc-slide__inner">
-				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true"></div>
+				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true" data-parallax data-depth="0.12"></div>
 				<div class="plc-slide__content">
 					<h2 class="plc-h2">More Projects</h2>
 					<div class="plc-cards">
@@ -100,7 +100,7 @@ get_header();
 
 		<section class="plc-slide" data-slide>
 			<div class="plc-slide__inner">
-				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true"></div>
+				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true" data-parallax data-depth="0.14"></div>
 				<div class="plc-slide__content">
 					<h2 class="plc-h2">Capabilities</h2>
 					<div class="plc-cols">
@@ -114,7 +114,7 @@ get_header();
 
 		<section class="plc-slide" data-slide>
 			<div class="plc-slide__inner">
-				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true"></div>
+				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true" data-parallax data-depth="0.12"></div>
 				<div class="plc-slide__content">
 					<h2 class="plc-h2">How I Work</h2>
 					<ol class="plc-steps">
@@ -129,7 +129,7 @@ get_header();
 
 		<section class="plc-slide plc-slide--contact" data-slide>
 			<div class="plc-slide__inner">
-				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true"></div>
+				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true" data-parallax data-depth="0.14"></div>
 				<div class="plc-slide__content">
 					<h2 class="plc-h2">Contact</h2>
 					<p class="plc-muted">Temporary links for now.</p>

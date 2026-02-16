@@ -2,7 +2,7 @@
 /**
  * Front Page template
  *
- * A one-page portfolio (dark mode) optimized for speed with bold, tasteful animation hooks.
+ * 3D slide-deck one-page portfolio (scroll-driven).
  *
  * @package plcalub-theme
  */
@@ -10,223 +10,117 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
-	<section id="top" class="plc-hero">
-		<div class="plc-container">
-			<div class="plc-hero__grid">
-				<div class="plc-hero__content">
-					<p class="plc-eyebrow" data-anim="fade">Fullstack Web Developer</p>
-					<h1 class="plc-hero__title" data-anim="title">
-						I build high-performance web products—from UI to infrastructure.
-					</h1>
-					<p class="plc-hero__sub" data-anim="fade" data-anim-delay="0.05">
-						Frontend • Backend • DevOps. Clean UX, reliable systems, measurable results.
-					</p>
-
-					<div class="plc-hero__cta" data-anim="fade" data-anim-delay="0.10">
-						<a class="plc-btn plc-btn--primary" href="#work">View Work</a>
-						<a class="plc-btn plc-btn--ghost" href="#contact">Contact</a>
-					</div>
-
-					<div class="plc-proof" data-anim="fade" data-anim-delay="0.15">
-						<div class="plc-proof__item">
-							<span class="plc-proof__k">Focus</span>
-							<span class="plc-proof__v">Speed + UI polish</span>
-						</div>
-						<div class="plc-proof__item">
-							<span class="plc-proof__k">Stack</span>
-							<span class="plc-proof__v">WordPress • Node • CI/CD</span>
-						</div>
-						<div class="plc-proof__item">
-							<span class="plc-proof__k">Delivery</span>
-							<span class="plc-proof__v">Design → Build → Deploy</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="plc-hero__visual" aria-hidden="true">
-					<div class="plc-orb" data-anim="orb"></div>
-					<div class="plc-grid" data-anim="grid"></div>
-				</div>
-			</div>
+<main id="primary" class="site-main plc-deck">
+	<div class="plc-deck__stage" id="plc-deck" data-deck>
+		<div class="plc-deck__hud" aria-hidden="true">
+			<div class="plc-deck__hint">Scroll</div>
+			<div class="plc-deck__progress"><span class="plc-deck__bar" data-deck-bar></span></div>
 		</div>
-	</section>
 
-	<section id="work" class="plc-section">
-		<div class="plc-container">
-			<div class="plc-section__head">
-				<h2 class="plc-h2" data-anim="fade">Selected Work</h2>
-				<p class="plc-muted" data-anim="fade" data-anim-delay="0.05">Six projects (placeholder names for now). We’ll replace these with your real case studies.</p>
-			</div>
-
-			<div class="plc-cards">
-				<a class="plc-card" href="#" data-anim="card">
-					<div class="plc-card__top">
-						<span class="plc-tag">UI + Backend</span>
-						<span class="plc-card__year">2026</span>
+		<section class="plc-slide plc-slide--hero" data-slide>
+			<div class="plc-slide__inner">
+				<div class="plc-slide__layer plc-slide__layer--bg" aria-hidden="true"></div>
+				<div class="plc-slide__content">
+					<p class="plc-eyebrow">Fullstack Web Developer</p>
+					<h1 class="plc-hero__title" data-anim="title">I build high-performance web products—from UI to infrastructure.</h1>
+					<p class="plc-hero__sub">Frontend • Backend • DevOps. Clean UX, reliable systems, measurable results.</p>
+					<div class="plc-hero__cta">
+						<a class="plc-btn plc-btn--primary" href="#" data-deck-jump="2">View Work</a>
+						<a class="plc-btn plc-btn--ghost" href="#" data-deck-jump="7">Contact</a>
 					</div>
-					<h3 class="plc-card__title">Nebula CRM</h3>
-					<p class="plc-card__desc">A fast, role-based CRM with automation, audit trails, and clean workflows.</p>
-				</a>
-
-				<a class="plc-card" href="#" data-anim="card">
-					<div class="plc-card__top">
-						<span class="plc-tag">Data + Dashboards</span>
-						<span class="plc-card__year">2026</span>
-					</div>
-					<h3 class="plc-card__title">Pulse Analytics</h3>
-					<p class="plc-card__desc">A metrics hub with blazing charts, alerts, and stakeholder-ready reporting.</p>
-				</a>
-
-				<a class="plc-card" href="#" data-anim="card">
-					<div class="plc-card__top">
-						<span class="plc-tag">DevOps</span>
-						<span class="plc-card__year">2026</span>
-					</div>
-					<h3 class="plc-card__title">Atlas Deploy</h3>
-					<p class="plc-card__desc">A CI/CD pipeline blueprint: safe releases, previews, and auto rollbacks.</p>
-				</a>
-
-				<a class="plc-card" href="#" data-anim="card">
-					<div class="plc-card__top">
-						<span class="plc-tag">Ecommerce</span>
-						<span class="plc-card__year">2025</span>
-					</div>
-					<h3 class="plc-card__title">Aether Commerce</h3>
-					<p class="plc-card__desc">A conversion-focused storefront with performance budgets and motion polish.</p>
-				</a>
-
-				<a class="plc-card" href="#" data-anim="card">
-					<div class="plc-card__top">
-						<span class="plc-tag">Systems</span>
-						<span class="plc-card__year">2025</span>
-					</div>
-					<h3 class="plc-card__title">Kairo Scheduler</h3>
-					<p class="plc-card__desc">Scheduling engine with queues, retries, timezones, and clean admin UX.</p>
-				</a>
-
-				<a class="plc-card" href="#" data-anim="card">
-					<div class="plc-card__top">
-						<span class="plc-tag">CMS</span>
-						<span class="plc-card__year">2025</span>
-					</div>
-					<h3 class="plc-card__title">Nimbus Portfolio CMS</h3>
-					<p class="plc-card__desc">A content system built for speed: typed content, components, and SEO sanity.</p>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<section id="capabilities" class="plc-section plc-section--alt">
-		<div class="plc-container">
-			<div class="plc-section__head">
-				<h2 class="plc-h2" data-anim="fade">Capabilities</h2>
-				<p class="plc-muted" data-anim="fade" data-anim-delay="0.05">End-to-end delivery across product, code, and deployment.</p>
-			</div>
-
-			<div class="plc-cols">
-				<div class="plc-col" data-anim="fade">
-					<h3 class="plc-h3">Frontend</h3>
-					<ul class="plc-list">
-						<li>Design systems, motion, microinteractions</li>
-						<li>Performance-first UI implementation</li>
-						<li>Accessible, responsive layouts</li>
-					</ul>
-				</div>
-				<div class="plc-col" data-anim="fade" data-anim-delay="0.05">
-					<h3 class="plc-h3">Backend</h3>
-					<ul class="plc-list">
-						<li>APIs, auth, data modeling</li>
-						<li>Automation + integrations</li>
-						<li>Observability and pragmatic architecture</li>
-					</ul>
-				</div>
-				<div class="plc-col" data-anim="fade" data-anim-delay="0.10">
-					<h3 class="plc-h3">DevOps</h3>
-					<ul class="plc-list">
-						<li>CI/CD, environments, safe deploys</li>
-						<li>Linux, hosting, uptime hygiene</li>
-						<li>Monitoring + rollback strategy</li>
-					</ul>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section id="process" class="plc-section">
-		<div class="plc-container">
-			<div class="plc-section__head">
-				<h2 class="plc-h2" data-anim="fade">How I Work</h2>
-				<p class="plc-muted" data-anim="fade" data-anim-delay="0.05">A simple process, executed relentlessly.</p>
-			</div>
-
-			<ol class="plc-steps">
-				<li class="plc-step" data-anim="fade">
-					<span class="plc-step__n">01</span>
-					<div class="plc-step__b">
-						<h3 class="plc-h3">Clarify</h3>
-						<p class="plc-muted">Define the goal, constraints, and what “good” looks like.</p>
+		<section class="plc-slide" data-slide>
+			<div class="plc-slide__inner">
+				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true"></div>
+				<div class="plc-slide__content">
+					<h2 class="plc-h2">Proof, not fluff.</h2>
+					<p class="plc-muted">This deck is built to feel like a product. Bold motion, deep layers, and a clean narrative.</p>
+					<div class="plc-proof">
+						<div class="plc-proof__item"><span class="plc-proof__k">Focus</span><span class="plc-proof__v">Speed + UI polish</span></div>
+						<div class="plc-proof__item"><span class="plc-proof__k">Delivery</span><span class="plc-proof__v">Design → Build → Deploy</span></div>
+						<div class="plc-proof__item"><span class="plc-proof__k">Edge</span><span class="plc-proof__v">Animations with intent</span></div>
 					</div>
-				</li>
-				<li class="plc-step" data-anim="fade" data-anim-delay="0.05">
-					<span class="plc-step__n">02</span>
-					<div class="plc-step__b">
-						<h3 class="plc-h3">Design + Prototype</h3>
-						<p class="plc-muted">Fast iteration on UX, components, and motion.</p>
-					</div>
-				</li>
-				<li class="plc-step" data-anim="fade" data-anim-delay="0.10">
-					<span class="plc-step__n">03</span>
-					<div class="plc-step__b">
-						<h3 class="plc-h3">Build</h3>
-						<p class="plc-muted">Ship clean code, keep performance budgets, test edge cases.</p>
-					</div>
-				</li>
-				<li class="plc-step" data-anim="fade" data-anim-delay="0.15">
-					<span class="plc-step__n">04</span>
-					<div class="plc-step__b">
-						<h3 class="plc-h3">Deploy + Improve</h3>
-						<p class="plc-muted">Automate releases, monitor, iterate based on real usage.</p>
-					</div>
-				</li>
-			</ol>
-		</div>
-	</section>
-
-	<section id="about" class="plc-section plc-section--alt">
-		<div class="plc-container">
-			<div class="plc-about">
-				<div>
-					<h2 class="plc-h2" data-anim="fade">About</h2>
-					<p class="plc-muted" data-anim="fade" data-anim-delay="0.05">
-						I’m Philip Louis Calub — a Fullstack Web Developer who cares about product quality, performance, and deployment reliability.
-					</p>
-				</div>
-				<div class="plc-about__chips" data-anim="fade" data-anim-delay="0.10">
-					<span class="plc-chip">Frontend</span>
-					<span class="plc-chip">Backend</span>
-					<span class="plc-chip">DevOps</span>
-					<span class="plc-chip">WordPress</span>
-					<span class="plc-chip">Performance</span>
-					<span class="plc-chip">Motion</span>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section id="contact" class="plc-section">
-		<div class="plc-container">
-			<div class="plc-contact" data-anim="fade">
-				<h2 class="plc-h2">Let’s build something that feels expensive.</h2>
-				<p class="plc-muted">Contacts are placeholders for now.</p>
-				<div class="plc-contact__links">
-					<a class="plc-link" href="#">Email #</a>
-					<a class="plc-link" href="#">LinkedIn #</a>
-					<a class="plc-link" href="#">GitHub #</a>
+		<section class="plc-slide" data-slide>
+			<div class="plc-slide__inner">
+				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true"></div>
+				<div class="plc-slide__content">
+					<h2 class="plc-h2">Selected Work</h2>
+					<p class="plc-muted">Placeholders for now. We’ll replace with real case studies.</p>
+					<div class="plc-cards">
+						<a class="plc-card" href="#"><div class="plc-card__top"><span class="plc-tag">UI + Backend</span><span class="plc-card__year">2026</span></div><h3 class="plc-card__title">Nebula CRM</h3><p class="plc-card__desc">Role-based workflows + automation.</p></a>
+						<a class="plc-card" href="#"><div class="plc-card__top"><span class="plc-tag">Data</span><span class="plc-card__year">2026</span></div><h3 class="plc-card__title">Pulse Analytics</h3><p class="plc-card__desc">Metrics hub + alerts + reporting.</p></a>
+						<a class="plc-card" href="#"><div class="plc-card__top"><span class="plc-tag">DevOps</span><span class="plc-card__year">2026</span></div><h3 class="plc-card__title">Atlas Deploy</h3><p class="plc-card__desc">CI/CD blueprint + safe releases.</p></a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+
+		<section class="plc-slide" data-slide>
+			<div class="plc-slide__inner">
+				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true"></div>
+				<div class="plc-slide__content">
+					<h2 class="plc-h2">More Projects</h2>
+					<div class="plc-cards">
+						<a class="plc-card" href="#"><div class="plc-card__top"><span class="plc-tag">Ecommerce</span><span class="plc-card__year">2025</span></div><h3 class="plc-card__title">Aether Commerce</h3><p class="plc-card__desc">Conversion-focused storefront.</p></a>
+						<a class="plc-card" href="#"><div class="plc-card__top"><span class="plc-tag">Systems</span><span class="plc-card__year">2025</span></div><h3 class="plc-card__title">Kairo Scheduler</h3><p class="plc-card__desc">Queues, retries, timezones.</p></a>
+						<a class="plc-card" href="#"><div class="plc-card__top"><span class="plc-tag">CMS</span><span class="plc-card__year">2025</span></div><h3 class="plc-card__title">Nimbus Portfolio CMS</h3><p class="plc-card__desc">Typed content + components.</p></a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="plc-slide" data-slide>
+			<div class="plc-slide__inner">
+				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true"></div>
+				<div class="plc-slide__content">
+					<h2 class="plc-h2">Capabilities</h2>
+					<div class="plc-cols">
+						<div class="plc-col"><h3 class="plc-h3">Frontend</h3><ul class="plc-list"><li>Design systems + motion</li><li>Performance-first UI</li><li>Accessibility</li></ul></div>
+						<div class="plc-col"><h3 class="plc-h3">Backend</h3><ul class="plc-list"><li>APIs, auth, data</li><li>Integrations + automation</li><li>Observability</li></ul></div>
+						<div class="plc-col"><h3 class="plc-h3">DevOps</h3><ul class="plc-list"><li>CI/CD + safe deploys</li><li>Linux + hosting</li><li>Monitoring</li></ul></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="plc-slide" data-slide>
+			<div class="plc-slide__inner">
+				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true"></div>
+				<div class="plc-slide__content">
+					<h2 class="plc-h2">How I Work</h2>
+					<ol class="plc-steps">
+						<li class="plc-step"><span class="plc-step__n">01</span><div class="plc-step__b"><h3 class="plc-h3">Clarify</h3><p class="plc-muted">Goal, constraints, success metrics.</p></div></li>
+						<li class="plc-step"><span class="plc-step__n">02</span><div class="plc-step__b"><h3 class="plc-h3">Design</h3><p class="plc-muted">UX, components, motion decisions.</p></div></li>
+						<li class="plc-step"><span class="plc-step__n">03</span><div class="plc-step__b"><h3 class="plc-h3">Build</h3><p class="plc-muted">Ship clean code under a performance budget.</p></div></li>
+						<li class="plc-step"><span class="plc-step__n">04</span><div class="plc-step__b"><h3 class="plc-h3">Deploy</h3><p class="plc-muted">Automate releases + iterate from real usage.</p></div></li>
+					</ol>
+				</div>
+			</div>
+		</section>
+
+		<section class="plc-slide plc-slide--contact" data-slide>
+			<div class="plc-slide__inner">
+				<div class="plc-slide__layer plc-slide__layer--glow" aria-hidden="true"></div>
+				<div class="plc-slide__content">
+					<h2 class="plc-h2">Contact</h2>
+					<p class="plc-muted">Temporary links for now.</p>
+					<div class="plc-contact__links">
+						<a class="plc-link" href="#">Email #</a>
+						<a class="plc-link" href="#">LinkedIn #</a>
+						<a class="plc-link" href="#">GitHub #</a>
+					</div>
+					<p class="plc-muted" style="margin-top:18px;">Scroll back up to replay the deck.</p>
+				</div>
+			</div>
+		</section>
+	</div>
 </main>
 
 <?php

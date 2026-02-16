@@ -28,6 +28,16 @@
 			});
 		});
 
+		// Deck jumps (for CTA buttons)
+		qsAll('[data-deck-jump]').forEach(function (btn) {
+			btn.addEventListener('click', function (e) {
+				e.preventDefault();
+				var idx = parseInt(btn.getAttribute('data-deck-jump') || '0', 10);
+				if (!idx || !window.__plcDeck) return;
+				window.__plcDeck.toSlide(idx);
+			});
+		});
+
 		var intro = document.getElementById('plc-intro');
 		if (intro) {
 			body.classList.add('plc-intro-lock');
@@ -112,24 +122,58 @@
 			);
 		});
 
-		// Cards
-		qsAll('[data-anim="card"]').forEach(function (card, i) {
-			gsap.fromTo(
-				card,
-				{ y: 22, opacity: 0 },
-				{
-					y: 0,
-					opacity: 1,
-					duration: 0.8,
-					ease: 'power3.out',
-					stagger: 0.02,
-					scrollTrigger: ScrollTrigger
-						? { trigger: card, start: 'top 92%', once: true }
-						: undefined,
-				}
-			);
+		// 3D Deck (scroll-driven)
+		var deck = document.querySelector('[data-deck]');
+		var slides = deck ? qsAll('[data-slide]', deck) : [];
+		var bar = document.querySelector('[data-deck-bar]');
 
-			// Magnetic-ish hover
+		if (deck && slides.length) {
+			// Make sure slides start stacked in 3D space
+			gsap.set(slides, { opacity: 0, rotateX: 14, rotateY: -10, z: -240, y: 40, transformOrigin: '50% 50%', force3D: true });
+			gsap.set(slides[0], { opacity: 1, rotateX: 0, rotateY: 0, z: 0, y: 0 });
+
+			var tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
+			var step = 1 / Math.max(1, slides.length - 1);
+
+			for (var i = 0; i < slides.length - 1; i++) {
+				var a = slides[i];
+				var b = slides[i + 1];
+
+				// Bring next slide in while pushing current away
+				tl.to(a, { opacity: 0, z: -420, rotateX: -18, rotateY: 10, y: -70, duration: 0.65 }, i)
+					.to(b, { opacity: 1, z: 0, rotateX: 0, rotateY: 0, y: 0, duration: 0.75 }, i + 0.12)
+					.fromTo(
+						b.querySelectorAll('.plc-card'),
+						{ y: 18, opacity: 0 },
+						{ y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: 'power3.out' },
+						i + 0.22
+					);
+			}
+
+			var st = ScrollTrigger.create({
+				animation: tl,
+				trigger: deck,
+				start: 'top top',
+				end: '+=' + (slides.length * 1000),
+				scrub: 1,
+				pin: true,
+				onUpdate: function (self) {
+					if (bar) bar.style.width = Math.round(self.progress * 100) + '%';
+				},
+			});
+
+			window.__plcDeck = {
+				toSlide: function (idx) {
+					idx = Math.max(0, Math.min(slides.length - 1, idx));
+					var p = idx * step;
+					var y = st.start + (st.end - st.start) * p;
+					window.scrollTo({ top: y, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+				},
+			};
+		}
+
+		// Magnetic-ish hover for cards (works both in deck and normal mode)
+		qsAll('.plc-card').forEach(function (card) {
 			card.addEventListener('mousemove', function (e) {
 				var r = card.getBoundingClientRect();
 				var dx = (e.clientX - (r.left + r.width / 2)) / r.width;
@@ -140,13 +184,6 @@
 				gsap.to(card, { x: 0, y: 0, duration: 0.5, ease: 'power3.out' });
 			});
 		});
-
-		// Ambient hero visual
-		var orb = document.querySelector('.plc-orb');
-		if (orb) {
-			gsap.to(orb, { rotate: 360, duration: 18, ease: 'none', repeat: -1 });
-			gsap.to(orb, { y: -14, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-		}
 	}
 
 	if (document.readyState === 'loading') {

@@ -22,6 +22,23 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<div id="plc-intro" class="plc-intro" aria-hidden="true">
+	<div class="plc-intro__bg"></div>
+	<div class="plc-intro__content">
+		<div class="plc-intro__mark">
+			<span class="plc-intro__dot"></span>
+			<span class="plc-intro__dot"></span>
+			<span class="plc-intro__dot"></span>
+		</div>
+		<div class="plc-intro__text">
+			<div class="plc-intro__kicker">Fullstack</div>
+			<div class="plc-intro__title">Philip Louis Calub</div>
+			<div class="plc-intro__sub">Frontend • Backend • DevOps</div>
+		</div>
+	</div>
+</div>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'plcalub-theme' ); ?></a>
 

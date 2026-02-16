@@ -36,12 +36,34 @@ get_header();
 			<div class="plc-slide__inner">
 				<div class="plc-slide__layer plc-slide__layer--grid" aria-hidden="true"></div>
 				<div class="plc-slide__content">
-					<h2 class="plc-h2">Proof, not fluff.</h2>
-					<p class="plc-muted">This deck is built to feel like a product. Bold motion, deep layers, and a clean narrative.</p>
-					<div class="plc-proof">
-						<div class="plc-proof__item"><span class="plc-proof__k">Focus</span><span class="plc-proof__v">Speed + UI polish</span></div>
-						<div class="plc-proof__item"><span class="plc-proof__k">Delivery</span><span class="plc-proof__v">Design → Build → Deploy</span></div>
-						<div class="plc-proof__item"><span class="plc-proof__k">Edge</span><span class="plc-proof__v">Animations with intent</span></div>
+					<h2 class="plc-h2 plc-proofTitle" data-proof="title">Proof, not fluff.</h2>
+					<p class="plc-muted plc-proofSub" data-proof="sub">Placeholder highlights (we’ll swap to real numbers once you give them to me).</p>
+
+					<div class="plc-metrics" data-proof="metrics">
+						<div class="plc-metric">
+							<div class="plc-metric__n"><span data-count="98">98</span><span class="plc-metric__s">/100</span></div>
+							<div class="plc-metric__k">Lighthouse Performance</div>
+							<div class="plc-metric__d">Budgeted CSS/JS + optimized images.</div>
+						</div>
+						<div class="plc-metric">
+							<div class="plc-metric__n"><span data-count="0.9">0.9</span><span class="plc-metric__s">s</span></div>
+							<div class="plc-metric__k">First usable interaction</div>
+							<div class="plc-metric__d">Snappy UX with motion that guides.</div>
+						</div>
+						<div class="plc-metric">
+							<div class="plc-metric__n"><span data-count="24">24</span><span class="plc-metric__s">/7</span></div>
+							<div class="plc-metric__k">Deploy hygiene</div>
+							<div class="plc-metric__d">CI/CD, rollback plan, monitoring mindset.</div>
+						</div>
+					</div>
+
+					<div class="plc-proof2" data-proof="chips">
+						<span class="plc-chip">ScrollTrigger</span>
+						<span class="plc-chip">3D transforms</span>
+						<span class="plc-chip">Glass UI</span>
+						<span class="plc-chip">Progress HUD</span>
+						<span class="plc-chip">Magnetic hover</span>
+						<span class="plc-chip">Intro loader</span>
 					</div>
 				</div>
 			</div>

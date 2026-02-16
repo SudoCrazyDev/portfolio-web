@@ -337,6 +337,73 @@ a { color: inherit; }
 	margin-top: 26px;
 }
 
+/* Proof slide: metrics */
+.plc-metrics {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+	margin-top: 18px;
+}
+
+@media (max-width: 840px) {
+	.plc-metrics { grid-template-columns: 1fr; }
+}
+
+.plc-metric {
+	padding: 18px;
+	border-radius: 20px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.02);
+	position: relative;
+	overflow: hidden;
+}
+
+.plc-metric::after {
+	content: "";
+	position: absolute;
+	inset: -1px;
+	background: radial-gradient(circle at 20% 15%, rgba(34,211,238,0.16), transparent 38%),
+		radial-gradient(circle at 85% 75%, rgba(139,92,246,0.18), transparent 42%);
+	opacity: 0;
+	transition: opacity 240ms ease;
+	pointer-events: none;
+}
+
+.plc-metric:hover::after { opacity: 1; }
+
+.plc-metric__n {
+	font-size: clamp(34px, 3.0vw, 46px);
+	font-weight: 900;
+	letter-spacing: -0.06em;
+	line-height: 1;
+	margin-bottom: 10px;
+}
+
+.plc-metric__s {
+	font-size: 0.52em;
+	opacity: 0.72;
+	margin-left: 4px;
+	font-weight: 700;
+}
+
+.plc-metric__k {
+	font-weight: 700;
+	margin-bottom: 6px;
+}
+
+.plc-metric__d {
+	color: rgba(255,255,255,0.66);
+	line-height: 1.55;
+	font-size: 14px;
+}
+
+.plc-proof2 {
+	margin-top: 18px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
 @media (max-width: 700px) {
 	.plc-proof { grid-template-columns: 1fr; }
 }

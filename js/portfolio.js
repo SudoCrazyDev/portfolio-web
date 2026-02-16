@@ -135,6 +135,20 @@
 			var tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
 			var step = 1 / Math.max(1, slides.length - 1);
 
+			function animateProof(slide, at) {
+				if (!slide) return;
+				var title = slide.querySelector('[data-proof="title"]');
+				var sub = slide.querySelector('[data-proof="sub"]');
+				var metrics = slide.querySelectorAll('.plc-metric');
+				var chips = slide.querySelectorAll('.plc-proof2 .plc-chip');
+				if (title) tl.fromTo(title, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, at);
+				if (sub) tl.fromTo(sub, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out' }, at + 0.06);
+				if (metrics && metrics.length)
+					tl.fromTo(metrics, { y: 20, opacity: 0, rotateX: 10 }, { y: 0, opacity: 1, rotateX: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out' }, at + 0.12);
+				if (chips && chips.length)
+					tl.fromTo(chips, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.04, ease: 'power3.out' }, at + 0.18);
+			}
+
 			for (var i = 0; i < slides.length - 1; i++) {
 				var a = slides[i];
 				var b = slides[i + 1];
@@ -148,6 +162,11 @@
 						{ y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: 'power3.out' },
 						i + 0.22
 					);
+
+				// Slide-specific: proof slide is index 1
+				if (i + 1 === 1) {
+					animateProof(b, i + 0.18);
+				}
 			}
 
 			var st = ScrollTrigger.create({

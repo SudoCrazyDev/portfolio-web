@@ -129,7 +129,7 @@
 
 		if (deck && slides.length) {
 			// Make sure slides start stacked in 3D space
-			gsap.set(slides, { opacity: 0, rotateX: 14, rotateY: -10, z: -240, y: 40, transformOrigin: '50% 50%', force3D: true });
+			gsap.set(slides, { opacity: 0, rotateX: 10, rotateY: -6, z: -220, y: 34, transformOrigin: '50% 50%', force3D: true });
 			gsap.set(slides[0], { opacity: 1, rotateX: 0, rotateY: 0, z: 0, y: 0 });
 
 			var tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
@@ -153,9 +153,9 @@
 				var a = slides[i];
 				var b = slides[i + 1];
 
-				// Bring next slide in while pushing current away
-				tl.to(a, { opacity: 0, z: -420, rotateX: -18, rotateY: 10, y: -70, duration: 0.65 }, i)
-					.to(b, { opacity: 1, z: 0, rotateX: 0, rotateY: 0, y: 0, duration: 0.75 }, i + 0.12)
+				// Bring next slide in while pushing current away (more editorial, less aggressive)
+				tl.to(a, { opacity: 0, z: -380, rotateX: -12, rotateY: 6, y: -56, duration: 0.60 }, i)
+					.to(b, { opacity: 1, z: 0, rotateX: 0, rotateY: 0, y: 0, duration: 0.70 }, i + 0.12)
 					.fromTo(
 						b.querySelectorAll('.plc-card'),
 						{ y: 18, opacity: 0 },

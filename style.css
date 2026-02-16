@@ -64,25 +64,27 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
    ------------------------------------------------------------- */
 
 :root {
-	--plc-bg: #07090f;
-	--plc-bg2: #0b1020;
+	--plc-bg: #06070c;
+	--plc-bg2: #090b12;
 	--plc-text: rgba(255, 255, 255, 0.92);
-	--plc-muted: rgba(255, 255, 255, 0.66);
+	--plc-muted: rgba(255, 255, 255, 0.64);
 	--plc-faint: rgba(255, 255, 255, 0.10);
 	--plc-line: rgba(255, 255, 255, 0.12);
-	--plc-accent: #8b5cf6;
-	--plc-accent2: #22d3ee;
+	--plc-accent: #a78bfa;
+	--plc-accent2: #67e8f9;
 	--plc-radius: 18px;
 	--plc-max: 1100px;
+	--plc-track: 0.12em;
 }
 
 body {
-	background: radial-gradient(1200px 700px at 20% 10%, rgba(139, 92, 246, 0.18), transparent 60%),
-		radial-gradient(900px 600px at 80% 30%, rgba(34, 211, 238, 0.10), transparent 55%),
+	background:
+		radial-gradient(900px 600px at 20% 10%, rgba(167, 139, 250, 0.10), transparent 60%),
+		radial-gradient(800px 520px at 80% 30%, rgba(103, 232, 249, 0.06), transparent 55%),
 		linear-gradient(180deg, var(--plc-bg), var(--plc-bg2));
 	color: var(--plc-text);
-	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-	letter-spacing: -0.01em;
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	letter-spacing: -0.012em;
 }
 
 a { color: inherit; }
@@ -175,15 +177,15 @@ a { color: inherit; }
 	display: flex;
 	gap: 12px;
 	align-items: center;
-	mix-blend-mode: screen;
 	pointer-events: none;
+	opacity: 0.85;
 }
 
 .plc-deck__hint {
-	font-size: 12px;
-	letter-spacing: 0.18em;
+	font-size: 11px;
+	letter-spacing: var(--plc-track);
 	text-transform: uppercase;
-	color: rgba(255,255,255,0.65);
+	color: rgba(255,255,255,0.58);
 }
 
 .plc-deck__progress {
@@ -212,13 +214,13 @@ a { color: inherit; }
 
 .plc-slide__inner {
 	position: relative;
-	width: min(1100px, calc(100% - 36px));
-	min-height: min(620px, calc(100vh - 140px));
+	width: min(1120px, calc(100% - 36px));
+	min-height: min(640px, calc(100vh - 140px));
 	border-radius: 28px;
-	border: 1px solid rgba(255,255,255,0.10);
-	background: rgba(10, 12, 18, 0.30);
-	backdrop-filter: blur(16px);
-	box-shadow: 0 60px 200px rgba(0,0,0,0.60);
+	border: 1px solid rgba(255,255,255,0.08);
+	background: rgba(10, 12, 18, 0.22);
+	backdrop-filter: blur(14px);
+	box-shadow: 0 70px 220px rgba(0,0,0,0.66);
 	overflow: hidden;
 }
 
@@ -268,18 +270,18 @@ a { color: inherit; }
 	display: inline-flex;
 	gap: 10px;
 	align-items: center;
-	color: rgba(255,255,255,0.72);
-	font-size: 13px;
-	letter-spacing: 0.16em;
+	color: rgba(255,255,255,0.66);
+	font-size: 11px;
+	letter-spacing: var(--plc-track);
 	text-transform: uppercase;
-	margin: 0 0 14px;
+	margin: 0 0 16px;
 }
 
 .plc-hero__title {
-	margin: 0 0 14px;
-	font-size: clamp(36px, 4.4vw, 62px);
-	line-height: 1.02;
-	letter-spacing: -0.05em;
+	margin: 0 0 18px;
+	font-size: clamp(44px, 5.0vw, 76px);
+	line-height: 0.98;
+	letter-spacing: -0.055em;
 }
 
 .plc-word {

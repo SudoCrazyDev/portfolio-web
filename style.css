@@ -59,6 +59,423 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
+/* -------------------------------------------------------------
+   Portfolio custom styles (dark mode + bold motion-ready UI)
+   ------------------------------------------------------------- */
+
+:root {
+	--plc-bg: #07090f;
+	--plc-bg2: #0b1020;
+	--plc-text: rgba(255, 255, 255, 0.92);
+	--plc-muted: rgba(255, 255, 255, 0.66);
+	--plc-faint: rgba(255, 255, 255, 0.10);
+	--plc-line: rgba(255, 255, 255, 0.12);
+	--plc-accent: #8b5cf6;
+	--plc-accent2: #22d3ee;
+	--plc-radius: 18px;
+	--plc-max: 1100px;
+}
+
+body {
+	background: radial-gradient(1200px 700px at 20% 10%, rgba(139, 92, 246, 0.18), transparent 60%),
+		radial-gradient(900px 600px at 80% 30%, rgba(34, 211, 238, 0.10), transparent 55%),
+		linear-gradient(180deg, var(--plc-bg), var(--plc-bg2));
+	color: var(--plc-text);
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	letter-spacing: -0.01em;
+}
+
+a { color: inherit; }
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	backdrop-filter: blur(12px);
+	background: rgba(5, 7, 12, 0.55);
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.site-branding .site-title a {
+	text-decoration: none;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.main-navigation {
+	max-width: var(--plc-max);
+	margin: 0 auto;
+	padding: 14px 18px;
+}
+
+.site-branding {
+	max-width: var(--plc-max);
+	margin: 0 auto;
+	padding: 16px 18px 0;
+}
+
+/* Layout helpers */
+.plc-container {
+	max-width: var(--plc-max);
+	margin: 0 auto;
+	padding: 0 18px;
+}
+
+.plc-section {
+	padding: 84px 0;
+}
+
+.plc-section--alt {
+	background: rgba(255,255,255,0.02);
+	border-top: 1px solid rgba(255,255,255,0.06);
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.plc-section__head {
+	margin-bottom: 22px;
+}
+
+.plc-h2 {
+	margin: 0 0 8px;
+	font-size: clamp(26px, 2.6vw, 36px);
+	letter-spacing: -0.03em;
+}
+
+.plc-h3 {
+	margin: 0 0 10px;
+	font-size: 18px;
+	letter-spacing: -0.02em;
+}
+
+.plc-muted {
+	color: var(--plc-muted);
+	margin: 0;
+	line-height: 1.6;
+}
+
+/* Hero */
+.plc-hero {
+	padding: 90px 0 60px;
+}
+
+.plc-hero__grid {
+	display: grid;
+	grid-template-columns: 1.2fr 0.8fr;
+	gap: 26px;
+	align-items: center;
+}
+
+@media (max-width: 900px) {
+	.plc-hero__grid { grid-template-columns: 1fr; }
+}
+
+.plc-eyebrow {
+	display: inline-flex;
+	gap: 10px;
+	align-items: center;
+	color: rgba(255,255,255,0.72);
+	font-size: 13px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	margin: 0 0 14px;
+}
+
+.plc-hero__title {
+	margin: 0 0 14px;
+	font-size: clamp(36px, 4.4vw, 62px);
+	line-height: 1.02;
+	letter-spacing: -0.05em;
+}
+
+.plc-word {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: bottom;
+}
+
+.plc-word > span {
+	display: inline-block;
+	will-change: transform, opacity;
+}
+
+.plc-hero__sub {
+	max-width: 56ch;
+	margin: 0 0 22px;
+}
+
+.plc-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	padding: 0 18px;
+	border-radius: 999px;
+	text-decoration: none;
+	border: 1px solid rgba(255,255,255,0.14);
+	transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+	will-change: transform;
+}
+
+.plc-btn:hover { transform: translateY(-1px); }
+
+.plc-btn--primary {
+	background: linear-gradient(135deg, rgba(139,92,246,0.95), rgba(34,211,238,0.85));
+	border-color: transparent;
+	color: #05070c;
+	font-weight: 700;
+}
+
+.plc-btn--ghost {
+	background: rgba(255,255,255,0.02);
+}
+
+.plc-hero__cta {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.plc-proof {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+	margin-top: 26px;
+}
+
+@media (max-width: 700px) {
+	.plc-proof { grid-template-columns: 1fr; }
+}
+
+.plc-proof__item {
+	padding: 14px 14px;
+	border-radius: var(--plc-radius);
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.02);
+}
+
+.plc-proof__k {
+	display: block;
+	font-size: 12px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: rgba(255,255,255,0.60);
+	margin-bottom: 6px;
+}
+
+.plc-proof__v {
+	display: block;
+	font-weight: 600;
+}
+
+.plc-hero__visual {
+	position: relative;
+	min-height: 320px;
+}
+
+.plc-orb {
+	position: absolute;
+	inset: 30px 20px;
+	border-radius: 999px;
+	background:
+		radial-gradient(circle at 30% 30%, rgba(34,211,238,0.75), transparent 55%),
+		radial-gradient(circle at 70% 70%, rgba(139,92,246,0.85), transparent 55%),
+		rgba(255,255,255,0.03);
+	filter: blur(0px);
+	box-shadow: 0 40px 120px rgba(0,0,0,0.55);
+	border: 1px solid rgba(255,255,255,0.10);
+}
+
+.plc-grid {
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+	background-size: 28px 28px;
+	opacity: 0.08;
+	mask-image: radial-gradient(circle at 50% 50%, #000 35%, transparent 70%);
+}
+
+/* Cards */
+.plc-cards {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+
+@media (max-width: 980px) {
+	.plc-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+	.plc-cards { grid-template-columns: 1fr; }
+}
+
+.plc-card {
+	display: block;
+	padding: 18px;
+	border-radius: calc(var(--plc-radius) + 2px);
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.02);
+	text-decoration: none;
+	min-height: 160px;
+	transform: translateZ(0);
+	transition: border-color 200ms ease, background 200ms ease;
+}
+
+.plc-card:hover {
+	border-color: rgba(34,211,238,0.35);
+	background: rgba(255,255,255,0.03);
+}
+
+.plc-card__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+.plc-tag {
+	font-size: 12px;
+	color: rgba(255,255,255,0.70);
+	padding: 6px 10px;
+	border: 1px solid rgba(255,255,255,0.10);
+	border-radius: 999px;
+	background: rgba(0,0,0,0.12);
+}
+
+.plc-card__year {
+	font-size: 12px;
+	color: rgba(255,255,255,0.55);
+}
+
+.plc-card__title {
+	margin: 0 0 8px;
+	font-size: 18px;
+	letter-spacing: -0.02em;
+}
+
+.plc-card__desc {
+	margin: 0;
+	color: rgba(255,255,255,0.66);
+	line-height: 1.55;
+}
+
+/* Columns + steps */
+.plc-cols {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+
+@media (max-width: 840px) {
+	.plc-cols { grid-template-columns: 1fr; }
+}
+
+.plc-col {
+	padding: 18px;
+	border-radius: var(--plc-radius);
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.02);
+}
+
+.plc-list {
+	margin: 0;
+	padding-left: 18px;
+	color: rgba(255,255,255,0.70);
+	line-height: 1.7;
+}
+
+.plc-steps {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	gap: 12px;
+}
+
+.plc-step {
+	display: grid;
+	grid-template-columns: 56px 1fr;
+	gap: 14px;
+	padding: 18px;
+	border-radius: var(--plc-radius);
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.02);
+}
+
+.plc-step__n {
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	color: rgba(255,255,255,0.75);
+}
+
+/* About */
+.plc-about {
+	display: grid;
+	grid-template-columns: 1.2fr 0.8fr;
+	gap: 18px;
+	align-items: start;
+}
+
+@media (max-width: 900px) {
+	.plc-about { grid-template-columns: 1fr; }
+}
+
+.plc-about__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: flex-start;
+}
+
+.plc-chip {
+	padding: 10px 12px;
+	border-radius: 999px;
+	border: 1px solid rgba(255,255,255,0.12);
+	background: rgba(255,255,255,0.02);
+	color: rgba(255,255,255,0.78);
+	font-weight: 600;
+}
+
+/* Contact */
+.plc-contact {
+	padding: 22px;
+	border-radius: var(--plc-radius);
+	border: 1px solid rgba(255,255,255,0.10);
+	background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(34,211,238,0.06));
+}
+
+.plc-contact__links {
+	display: flex;
+	gap: 14px;
+	flex-wrap: wrap;
+	margin-top: 14px;
+}
+
+.plc-link {
+	text-decoration: none;
+	border-bottom: 1px solid rgba(255,255,255,0.28);
+	padding-bottom: 2px;
+	color: rgba(255,255,255,0.86);
+}
+
+/* Footer */
+.site-footer {
+	border-top: 1px solid rgba(255,255,255,0.06);
+	background: rgba(0,0,0,0.18);
+}
+
+.site-info {
+	max-width: var(--plc-max);
+	margin: 0 auto;
+	padding: 22px 18px;
+	color: rgba(255,255,255,0.55);
+	font-size: 13px;
+}
+
+
 /* Document
 	 ========================================================================== */
 

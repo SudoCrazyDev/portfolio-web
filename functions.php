@@ -143,6 +143,12 @@ function plcalub_theme_scripts() {
 
 	wp_enqueue_script( 'plcalub-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+	// Animation stack (CDN) + theme script.
+	// Keep it lightweight: no build step required; respects prefers-reduced-motion.
+	wp_enqueue_script( 'gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', array(), '3.12.5', true );
+	wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', array( 'gsap' ), '3.12.5', true );
+	wp_enqueue_script( 'plcalub-theme-portfolio', get_template_directory_uri() . '/js/portfolio.js', array( 'gsap-scrolltrigger' ), _S_VERSION, true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

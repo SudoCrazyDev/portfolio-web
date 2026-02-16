@@ -1,0 +1,52 @@
+name: Deploy WordPress Theme to Hostinger (SSH)
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-hostinger-theme
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install rsync
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Add server to known_hosts
+        run: |
+          ssh-keyscan -p "${{ secrets.HOSTINGER_SSH_PORT }}" "${{ secrets.HOSTINGER_SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy theme via rsync
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          WP_PATH: ${{ secrets.HOSTINGER_WP_PATH }}
+          THEME_DIRNAME: plcalub-theme
+        run: |
+          set -euo pipefail
+          TARGET="$WP_PATH/wp-content/themes/$THEME_DIRNAME"
+
+          echo "Deploying to: $SSH_USER@$SSH_HOST:$TARGET"
+
+          rsync -az --delete \
+            -e "ssh -p $SSH_PORT" \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            ./ "$SSH_USER@$SSH_HOST:$TARGET/"

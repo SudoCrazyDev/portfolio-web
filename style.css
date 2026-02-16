@@ -475,6 +475,23 @@ a { color: inherit; }
 	font-size: 13px;
 }
 
+/*
+	Hard overrides (Underscores base styles come later in this file).
+	Keep the site dark no matter what.
+*/
+html, body {
+	background: radial-gradient(1200px 700px at 20% 10%, rgba(139, 92, 246, 0.18), transparent 60%),
+		radial-gradient(900px 600px at 80% 30%, rgba(34, 211, 238, 0.10), transparent 55%),
+		linear-gradient(180deg, var(--plc-bg), var(--plc-bg2)) !important;
+	color: var(--plc-text) !important;
+}
+
+#page, .site, #content {
+	background: transparent !important;
+}
+
+a, a:visited { color: inherit; }
+
 
 /* Document
 	 ========================================================================== */

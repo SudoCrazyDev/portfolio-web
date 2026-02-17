@@ -258,6 +258,21 @@ a { color: inherit; }
 	padding: 46px 44px;
 }
 
+/* Contact: full-bleed (full height + full width) */
+.plc-slide--contact .plc-slide__inner {
+	width: 100%;
+	min-height: 100vh;
+	border-radius: 0;
+	border-left: 0;
+	border-right: 0;
+	box-shadow: none;
+}
+
+.plc-slide--contact .plc-slide__content {
+	max-width: 1120px;
+	margin: 0 auto;
+}
+
 @media (max-width: 700px) {
 	.plc-slide__content { padding: 34px 22px; }
 	.plc-slide__inner { border-radius: 22px; }

@@ -61,7 +61,7 @@
 			gsap.fromTo(
 				title.querySelectorAll('.plc-word > span'),
 				{ y: 18, opacity: 0 },
-				{ y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.03, delay: intro ? 1.4 : 0 }
+				{ y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.03, delay: 0 }
 			);
 		}
 
